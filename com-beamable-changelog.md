@@ -6,7 +6,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## (Unreleased)
 ### Fixed
-- Fixed possible null reference exception in MustReferenceContent validation attribute
 - Fixes Beamable integration for the latest Unity In-App-Purchasing 3.x.x packages
 
 ### Added
@@ -19,6 +18,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add "publish under new manifest" button and manifest dropdown in Content Manager
 - Adds an optional field, activeListingLimit to Store Content
 - Facebook Limited Login support on iOS 
+
+## [0.13.0]
+### Fixed:
+* Fixed possible null reference exception in MustReferenceContent validation attribute
+
+### Added
+* GameCenter sdk Authentication Support
+* Adds an optional field, activeListingLimit to Store Content
+
+### Changed
+* Switched MatchmakingService API to point to our new backend matchmaking service.
 
 ## [0.11.0]
 ### Changed
