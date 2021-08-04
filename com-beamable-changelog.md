@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add "publish under new manifest" button and manifest dropdown in Content Manager
 - Adds an optional field, activeListingLimit to Store Content
 - Facebook Limited Login support on iOS 
+- Added support for multiple content manifests
 
 ## [0.13.0]
 ### Fixed:
