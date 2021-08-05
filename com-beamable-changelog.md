@@ -20,6 +20,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Facebook Limited Login support on iOS 
 - Added support for multiple content manifests
 
+## [0.13.1]
+### Fixed:
+- GameCenter SDK errors with non-iOS il2cpp builds
+
 ## [0.13.0]
 ### Fixed:
 * Fixed possible null reference exception in MustReferenceContent validation attribute
