@@ -1,3 +1,4 @@
+
 # Changelog
 All notable changes to this project will be documented in this file.
 
@@ -20,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Facebook Limited Login support on iOS 
 - Added support for multiple content manifests
 - ISerializationCallbackReceiver support for content
+- WebGL support
 
 ## [0.13.1]
 ### Fixed:
