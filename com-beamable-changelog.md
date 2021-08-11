@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ISerializationCallbackReceiver support for content
 - WebGL support
 - Added custom container prefix setting in configuration
+- Async support for Promises. 
 
 ## [0.13.1]
 ### Fixed:
