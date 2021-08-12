@@ -4,9 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## (unreleased)
+## [0.14.0]
 ### Added
-- Added the ability to use dependency injection to provide custom services to a Microservice instance. Configure your services with a static method marked with the ConfigureServices attribute that takes one input parameter of type IServiceBuilder.
+- Dependency Injection system
+- ISerializationCallbackReceiver for request and response objects used in `[ClientCallable]` methods
+- Custom routing prefix setting in `MicroserviceConfiguration`
 
 ## [0.13.0]
 ### Added

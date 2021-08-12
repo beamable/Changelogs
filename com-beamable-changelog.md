@@ -5,25 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## (Unreleased)
+## [0.14.0] 
 ### Fixed
-- Fixes Beamable integration for the latest Unity In-App-Purchasing 3.x.x packages
+- Integration for Unity In-App-Purchasing 3.x.x packages
+- Matchmaking state transition bug
+
+### Changed
+- Rearranged the Portal button and Account button in Toolbox
+- Rearranged the Content Count label in Content Manager
 
 ### Added
-- Add Content Manifest publish date to Content Manager window
-- New console command which opens web portal to the player page of the current player 
-- Support for Content multi object editing in the Inspector view
-- New editor tooling for selecting date strings
-- GameCenter Authentication Support
-- Add RealmPicker component to Content Manager V2
-- Add "publish under new manifest" button and manifest dropdown in Content Manager
-- Adds an optional field, activeListingLimit to Store Content
-- Facebook Limited Login support on iOS 
-- Added support for multiple content manifests
-- ISerializationCallbackReceiver support for content
-- WebGL support
-- Added custom container prefix setting in configuration
-- Async support for Promises. 
+- WebGL build support
+- Multiple content namespaces, both in Editor and Runtime. Must enable in Project Settings
+- GameCenter and Facebook Limited Login (iOS) Authentication
+- `"portal"` console command, which opens portal to the current player's admin page
+- Muli-object editing support for Content Referefence selector
+- New editor tooling for ISO date strings in Content Objects
+- Realm Picker in the top right of Content Manager
+- Last publish date in bottom-right of Content Manager
+- ISerializationCallbackReceiver support for Content Object serialization
+- Async support for `Promise<T>` types
 
 ## [0.13.1]
 ### Fixed:
@@ -39,6 +40,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 * Switched MatchmakingService API to point to our new backend matchmaking service.
+
+## [0.12.0]
+(this release was skipped)
 
 ## [0.11.0]
 ### Changed
