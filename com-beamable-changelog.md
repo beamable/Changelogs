@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.14.0] 
 ### Fixed
 - Integration for Unity In-App-Purchasing 3.x.x packages
-- Matchmaking state transition bug
+- Content references will update after a manifest subscription update
 
 ### Changed
 - Rearranged the Portal button and Account button in Toolbox
@@ -17,18 +17,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - WebGL build support
 - Multiple content namespaces, both in Editor and Runtime. Must enable in Project Settings
-- GameCenter and Facebook Limited Login (iOS) Authentication
+- Facebook Limited Login (iOS) Authentication
 - `"portal"` console command, which opens portal to the current player's admin page
-- Muli-object editing support for Content Referefence selector
+- Multi-object editing support for Content Reference selector
 - New editor tooling for ISO date strings in Content Objects
 - Realm Picker in the top right of Content Manager
 - Last publish date in bottom-right of Content Manager
 - ISerializationCallbackReceiver support for Content Object serialization
 - Async support for `Promise<T>` types
 
+
+## [0.13.3]
+### Fixed:
+- Matchmaking state transition bug 
+- Increases heartbeat rate for MatchMaking
+  
+
+## [0.13.2]
+### Fixed:
+- Fixed isHttpError obsolete errors
+- Removed use of Social.localUser.id from GameCenter Authentication
+
+### Added:
+- Support for GameCenter Authentication on iOS 13.5+
+
+
 ## [0.13.1]
 ### Fixed:
 - GameCenter SDK errors with non-iOS il2cpp builds
+
 
 ## [0.13.0]
 ### Fixed:
@@ -41,8 +58,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 * Switched MatchmakingService API to point to our new backend matchmaking service.
 
+
 ## [0.12.0]
 (this release was skipped)
+
 
 ## [0.11.0]
 ### Changed
