@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Rearranged the Portal button and Account button in Toolbox
 - Rearranged the Content Count label in Content Manager
+- Password reset codes can use PINs instead of UUIDs
 
 ### Added
 - WebGL build support
@@ -25,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Last publish date in bottom-right of Content Manager
 - ISerializationCallbackReceiver support for Content Object serialization
 - Async support for `Promise<T>` types
+- Added Donate api call method to GroupApi
 
 
 ## [0.13.3]
