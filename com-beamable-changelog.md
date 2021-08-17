@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Last publish date in bottom-right of Content Manager
 - ISerializationCallbackReceiver support for Content Object serialization
 - Async support for `Promise<T>` types
+- Added Donate api call method to GroupApi
 
 
 ## [0.13.3]
