@@ -8,11 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [unreleased]
 ### Added
 - Verbose logging capability available in Project Settings
-
+- Exposed cohort requirements for listing content
 
 ## [0.14.2]
 - no changes
-
 
 ## [0.14.1]
 ### Fixed
