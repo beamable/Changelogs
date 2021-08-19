@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Commerce Service AccelerateListingCooldown support to reduce the cooldown on a listing
 
+
+## [0.14.2]
+### Fixed
+- Namespace declarations starting with Editor, and removed un-used class PopupBtn
+ 
+
+## [0.14.1]
+- no changes
+
+
 ## [0.14.0]
 ### Added
 - Dependency Injection system
