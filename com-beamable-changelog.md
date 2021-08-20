@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.15.0]
+### Added
+- Verbose logging capability available in Project Settings
+- Exposed cohort requirements for listing content
+
+### Fixed
+- Logging back into the Toolbox will remember your Realm selection per game
+
+
 ## [0.14.3]
 ### Fixed
 - Re-namespaced internal UnityEngine.UI.Extensions to Beamable.UnityEngineCopy.UI.Extensions so as to not collide with other versions.
@@ -16,7 +25,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.14.1]
 ### Fixed
 - Facebook SDK won't be referenced unless the Facebook setting is checked in the Account Management Configuration
-
 
 ## [0.14.0] 
 ### Fixed
