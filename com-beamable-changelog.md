@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Verbose logging capability available in Project Settings
 - Exposed cohort requirements for listing content
 
+### Fixed
+- Logging back into the Toolbox will remember your Realm selection per game
+
 ## [0.14.2]
 - no changes
 
