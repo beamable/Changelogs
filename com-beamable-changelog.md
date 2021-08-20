@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.14.3]
 ### Fixed
-- JSON Serialization error in Stats API
+- Re-namespaced internal UnityEngine.UI.Extensions to Beamable.UnityEngineCopy.UI.Extensions so as to not collide with other versions.
 
 
 ## [0.14.2]
