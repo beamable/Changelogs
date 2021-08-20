@@ -13,6 +13,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Logging back into the Toolbox will remember your Realm selection per game
 
+
+## [0.14.3]
+### Fixed
+- Re-namespaced internal UnityEngine.UI.Extensions to Beamable.UnityEngineCopy.UI.Extensions so as to not collide with other versions.
+
+
 ## [0.14.2]
 - no changes
 

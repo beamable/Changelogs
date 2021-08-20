@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Commerce Service AccelerateListingCooldown support to reduce the cooldown on a listing
 
 
+## [0.14.3]
+- JSON Serialization error in Stats API
+- `AssumeUser()` no longer throws null reference
+
+
 ## [0.14.2]
 ### Fixed
 - Namespace declarations starting with Editor, and removed un-used class PopupBtn
