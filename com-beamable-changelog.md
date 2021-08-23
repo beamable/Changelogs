@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Logging back into the Toolbox will remember your Realm selection per game
+- Positioning of Validate, Publish and Download windows available from Content Manager
 
 ## [0.14.3]
 ### Fixed
