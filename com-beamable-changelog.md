@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Verbose logging capability available in Project Settings
 - Exposed cohort requirements for listing content
 - Admin commands: ADD_CURRENCY, SET_CURRENCY, GET_CURRENCY
+- Tournaments now supports the ability to specify group/guild-based rewards
+- Tournaments now support player score rewards in addition to the existing rank rewards
+- Tournaments allow developers to specify how many stages a player regresses if they do not participate in a cycle
+- Inventory now supports setting properties on currencies at runtime
 
 ### Fixed
 - Logging back into the Toolbox will remember your Realm selection per game
