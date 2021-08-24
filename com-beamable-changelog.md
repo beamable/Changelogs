@@ -5,10 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.15.0]
+### Added
+- Verbose logging capability available in Project Settings
+- Exposed cohort requirements for listing content
+- Admin commands: ADD_CURRENCY, SET_CURRENCY, GET_CURRENCY
+- Tournaments now supports the ability to specify group/guild-based rewards
+- Tournaments now support player score rewards in addition to the existing rank rewards
+- Tournaments allow developers to specify how many stages a player regresses if they do not participate in a cycle
+- Inventory now supports setting properties on currencies at runtime
+
+### Fixed
+- Logging back into the Toolbox will remember your Realm selection per game
+- Positioning of Validate, Publish and Download windows available from Content Manager
+
 ## [0.14.3]
 ### Fixed
 - Re-namespaced internal UnityEngine.UI.Extensions to Beamable.UnityEngineCopy.UI.Extensions so as to not collide with other versions.
-
 
 ## [0.14.2]
 - no changes
@@ -16,7 +29,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.14.1]
 ### Fixed
 - Facebook SDK won't be referenced unless the Facebook setting is checked in the Account Management Configuration
-
 
 ## [0.14.0] 
 ### Fixed
