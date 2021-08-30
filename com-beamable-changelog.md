@@ -9,10 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added Player Scripting Define Symbols to Diagnostic File
 - Added new console commands (GET_CONTENT, LIST_CONTENT, CONTENT_NAMESPACE, SET_CONTENT_NAMESPACE)
+- Added MustBeSlugString content validation with configurable option to allow underscores
+- Added OptionalBoolean type for content
+- Added Leaderboard Apis that support fetching partition/cohort cached assignment transparently
 
 ### Changed
 - Platform request bodies are GZip compressed if larger than 1K
 - Support GZip compressed Platform responses
+- Leaderboard Content supports partitioning, max size, and cohorting
+- Leaderboard Update api will transparently fetch cached assignment
 
 ## [0.15.0]
 ### Added
