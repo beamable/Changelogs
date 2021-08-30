@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Added Player Scripting Define Symbols to Diagnostic File
+- Added new console commands (GET_CONTENT, LIST_CONTENT, CONTENT_NAMESPACE, SET_CONTENT_NAMESPACE)
 
 ### Changed
 - Platform request bodies are GZip compressed if larger than 1K
