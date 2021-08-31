@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support GZip compressed Platform responses
 - Leaderboard Content supports partitioning, max size, and cohorting
 - Leaderboard Update api will transparently fetch cached assignment
+- PlayerStatRequirements now support providing the domain and access of stats
+- MustBeOneOf content validation attribute now supports Optional types
 
 ## [0.15.0]
 ### Added
