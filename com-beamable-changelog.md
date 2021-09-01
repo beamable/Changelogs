@@ -7,12 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Added Player Scripting Define Symbols to Diagnostic File
-- Added new console commands (GET_CONTENT, LIST_CONTENT, CONTENT_NAMESPACE, SET_CONTENT_NAMESPACE)
-- Added MustBeSlugString content validation with configurable option to allow underscores
-- Added OptionalBoolean type for content
-- Added Leaderboard Apis that support fetching partition/cohort cached assignment transparently
-- Added templates to create custom content type classes available under RMB -> Create/Beamable/Content Types
+- Player Scripting Define Symbols to Diagnostic File
+- New console commands (GET_CONTENT, LIST_CONTENT, CONTENT_NAMESPACE, SET_CONTENT_NAMESPACE)
+- MustBeSlugString content validation with configurable option to allow underscores
+- OptionalBoolean type for content
+- Leaderboard Apis that support fetching partition/cohort cached assignment transparently
+- Templates to create custom content type classes available under RMB -> Create/Beamable/Content Types
 
 ### Changed
 - Platform request bodies are GZip compressed if larger than 1K
