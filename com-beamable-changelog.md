@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.16.0]
+### Added
+- Added MustBeSlugString content validation with configurable option to allow underscores
+- Added OptionalBoolean type for content
+- Added Leaderboard Apis that support fetching partition/cohort cached assignment transparently
+
+### Changed
+- Leaderboard Content supports partitioning, max size, and cohorting
+- Leaderboard Update api will transparently fetch cached assignment
+- PlayerStatRequirements now support providing the domain and access of stats
+- MustBeOneOf content validation attribute now supports Optional types
+
 ## [0.15.0]
 ### Added
 - Verbose logging capability available in Project Settings
