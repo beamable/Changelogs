@@ -5,25 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.16.0]
 ### Added
-- Player Scripting Define Symbols to Diagnostic File
-- New console commands (GET_CONTENT, LIST_CONTENT, CONTENT_NAMESPACE, SET_CONTENT_NAMESPACE)
-- MustBeSlugString content validation with configurable option to allow underscores
-- OptionalBoolean type for content
-- Leaderboard Apis that support fetching partition/cohort cached assignment transparently
-- Templates to create custom content type classes available under RMB -> Create/Beamable/Content Types
+- Added MustBeSlugString content validation with configurable option to allow underscores
+- Added OptionalBoolean type for content
+- Added Leaderboard Apis that support fetching partition/cohort cached assignment transparently
 
 ### Changed
-- Platform request bodies are GZip compressed if larger than 1K
-- Support GZip compressed Platform responses
 - Leaderboard Content supports partitioning, max size, and cohorting
 - Leaderboard Update api will transparently fetch cached assignment
 - PlayerStatRequirements now support providing the domain and access of stats
-- MustBeOneOf content validation attribute now supports Optional types
-
-### Fixed
-- Added missing attributes for a content classes
+- MustBeOneOf content validation attribute now supports Optional types - Platform request bodies are GZip compressed if larger than 1K
+- Support GZip compressed Platform responses
 
 ## [0.15.0]
 ### Added
