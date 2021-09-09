@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Added missing attributes for a content classes
 - SocialService `SocialList` serialization
+- Account Management Flow third party login buttons use correct third parties
 
 ## [0.15.0]
 ### Added
