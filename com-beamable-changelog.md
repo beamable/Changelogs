@@ -18,6 +18,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - MustBeOneOf content validation attribute now supports Optional types - Platform request bodies are GZip compressed if larger than 1K
 - Support GZip compressed Platform responses
 
+### Fixed
+- SocialService `SocialList` serialization
+
 ## [0.15.0]
 ### Added
 - Verbose logging capability available in Project Settings
