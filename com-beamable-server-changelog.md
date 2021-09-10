@@ -7,7 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## (Unreleased)
 ### Added
 - Snyk testing for microservices.
-- Added LocalDebugService with HealthCheck
 
 ### Changed
 - Error structure and paradigm common to Microservices and Unity Client
