@@ -22,9 +22,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - PlayerStatRequirements now support providing the domain and access of stats
 - MustBeOneOf content validation attribute now supports Optional types
 - Error structure and paradigm common to Microservices and Unity Client
+- Redesigned announcements
 
 ### Fixed
 - Added missing attributes for a content classes
+- SocialService `SocialList` serialization
+- Account Management Flow third party login buttons use correct third parties
 
 ## [0.15.0]
 ### Added
