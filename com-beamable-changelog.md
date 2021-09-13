@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - OptionalBoolean type for content
 - Leaderboard Apis that support fetching partition/cohort cached assignment transparently
 - Templates to create custom content type classes available under RMB -> Create/Beamable/Content Types
+- Ability to disable Domain Reloading
 
 ### Changed
 - Platform request bodies are GZip compressed if larger than 1K
