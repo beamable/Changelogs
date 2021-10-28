@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - `CloudSavingService` serialization error caused by Invariant Culture
 - Content Manager Publish window loading bar width
-- Current Hud no longer emits null reference error if no image is assigned
+- Currency Hud no longer emits null reference error if no image is assigned
 
 
 ## [0.17.1]
