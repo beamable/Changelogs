@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5]
+### Fixed
+- Unity IAP failure to initialize on device won't hang `BeamContext.Default.OnReady`
+
 ## [1.0.4]
 ### Fixed
 - `IBeamableRequester` implementations no longer dispose `UnityWebRequest` too soon
@@ -57,11 +61,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Immutable prefabs are no longer dirtied by the legacy skinning system
 - The Reset command works on unsaved scenes
 - `EventContent.StartDate` is kept in sync with schedule definition
-
-## [0.18.5]
-### Fixed
-- Deferred retry of failed uploads to the poll coroutine, to eliminate an infinite loop that could crash the app.
-
 
 ## [0.18.2]
 ### Changed
