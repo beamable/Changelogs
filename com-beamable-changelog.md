@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.1]
 ### Fixed
-- The namespace for `PropertySourceTracker` no longer invalides the usage of `UnityEditor.Editor` as a type reference
+- The namespace for `PropertySourceTracker` no longer invalidates the usage of `UnityEditor.Editor` as a type reference
 
 ## [1.1.0]
 ### Added
