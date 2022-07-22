@@ -21,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `Friends` list accessible through the `BeamContext`
 - User's realm permission overrides apply in editor
 - Added posibility of disable content serialization exceptions during content download to allow manual repair for corrupted files. 
-
+- Added to `ISocialApi` methods to make/accept/decline friend requests via `gamertag`s. 
 
 ### Changed
 - Fields of auto-properties with attribute SerializeField are now serialized for content classes under the name of the property.
@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Beamable button in Unity toolbar should be in correct position for production packages
 - Content validation callbacks now support invoking private methods in base classes
 - BeamConsole accepts events after RESET command
+- Fixed Beamable login error for archived realms
 
 ## [1.2.8]
 ### Added
