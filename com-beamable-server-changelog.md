@@ -4,13 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.3.3]
 
+## [1.3.3]
 ### Changed
 - Changed service name validation in `Microservice Manager` to keep names unique
 
 ### [1.3.2]
-
 ### Added
 - Added `Services.Payments` which allows receipt verification.
 - Added `DeleteProtectedPlayerStats` and `DeleteStats` methods to `IMicroserviceStatsApi`.
@@ -75,6 +74,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Unused legacy code around "Auto Run Local Microservices" menu item
 
+## [1.2.12]
+no changes
+
+## [1.2.11]
+no changes
+
 ## [1.2.10]
 ### Added
 - `DisableAllBeamableEvents` option for the `MicroserviceAttribute`. When enabled, prevents the Microservice from receiving any Beamable events, including content cache invalidations.
@@ -102,7 +107,6 @@ no changes
 - "Connection is closed" log exception no longer prints incorrectly.
 - Requests no longer attempt to send while authorization process is happening.
 
-
 ## [1.2.4]
 ### Added
 - Microservices now support private declarations of `Callable` methods.
@@ -110,7 +114,6 @@ no changes
 
 ### Fixed
 - Microservices now properly log exceptions that happen during its initialization
-- Microservice process commands now use the `BeamableDispatcher` instead of the `EditorApplication.delayCall`. This allows you to background Unity during long running microservice actions.
 - Issue in Microservices re-auth flow that caused high CPU utilization unnecessarily
 
 ## [1.2.3]

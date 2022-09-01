@@ -73,6 +73,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - In Events and Listings schedule windows calendar buttons with days earlier than today can't be clicked
 - The `RankEntry` for current player is now mapped correctly in `LeaderBoardView` 
 
+## [1.2.12]
+### Fixed
+- The default uncaught Promise handler no longer throws IndexOutOfBounds errors in high failure cases.
+
+## [1.2.11]
+### Changed
+- `UnityWebRequest` respect a 10 second timeout before reporting `NoConnectivityException`
+
 ## [1.2.10]
 no changes
 
