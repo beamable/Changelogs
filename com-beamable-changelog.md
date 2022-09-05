@@ -12,9 +12,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Editor tooling for `SerializableDictionaryStringToSomething<T>` has context menu.
+- Expanded/Collapsed state represented by icons in `Theme Manager`
 
 ### Fixed
 - The default uncaught Promise handler no longer throws `IndexOutOfBounds` errors in high failure cases.
+- Fixed issue with windows not refreshing after login to Beamable.
 
 ### Changed
 - Beamable requests have a 15 second application level timeout.
