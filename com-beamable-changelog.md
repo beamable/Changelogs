@@ -3,20 +3,25 @@
 
 
 
+
 # Changelog
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.3.6]
+### Fixed
+- Fixed sending custom analytic events using `AnalyticsTracker.TrackEvent`
+
+## [1.3.5]
 ### Added
-- Editor tooling for `SerializableDictionaryStringToSomething<T>` has context menu.
-- Expanded/Collapsed state represented by icons in `Theme Manager`
+- Utility apis for setting expiration on Mail Update and Mail Send requests
 
 ### Fixed
-- The default uncaught Promise handler no longer throws `IndexOutOfBounds` errors in high failure cases.
 - VSP Package Attribution now uses requester.Cid rather than requester.AccessToken.Cid (which can be null at editor time)
+- Game Type content has validation for minimum team sizes.
+- Adding items to Inventory after changing authorized user works.
 
 ## [1.3.4]
 ### Added
@@ -48,9 +53,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.3.1]
 ### Added
 - A leaderboard can now be frozen using `LeaderboardService.FreezeLeaderboard` method to prevent additional scores to be submitted.
-
-### Changed
-- Editor tooling for `SerializableDictionaryStringToSomething<T>` now supports all subtypes
 
 ### Fixed
 - iOS builds will no longer overwrite the Beamable user language preference.
