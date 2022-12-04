@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.6.1]
 - no changes
 
-### [1.6.0]
+## [1.6.0]
 ### Added
 - Displaying log pagination if message contains more that 5000 chars
 - Quick action buttons for opening C# code and local documentation for service cards
