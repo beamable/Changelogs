@@ -4,6 +4,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Added
+- `PlayerInventory` supports storing player's inventory in offline mode
+- `PlayerInventory` supports `UpdateDelayed` method
+- `IFederatedLogin<T>` interface type available for Microservices
+- "external" identities section has been added to a `User` class
+- `BeamContext.Default.Accounts` now has `IsThirdPartyAvailable` and `IsEmailAvailable` methods which check if given credentials are available for usage.
+- Added `BeamContext.Presence` layer to handle requesting/changing player's presence status
+- `BeamContext.Social` now contains an event for players changing their presence status
+
+### Changed
+- `PlayerInventory` no longer duplicates items if retrieved with multiple `GetItems()` calls.
+- `PlayerInventory` makes less read calls to Beamable Cloud by coupling read operations into batches every .3 seconds.
+- Multiple calls to `PlayerInventory.Update()` will operate serially instead of compete for priority. 
+- Connectivity events are sourced from the `Heartbeat` every 5 seconds, instead of from the `ConnectivityService` every 3 seconds.
+- Update banner in Toolbox will link to changelog instead of blog post.
+
+### Fixed
+- `IBeamableDisposable.OnDispose()` is only called once per service, instead of once per service usage.
+- Local Content Mode won't fail to load content if internet connection is lost mid-game.
+- Fixed an issue with logging in and realm switching while being on an archived realm.
+- Duplicate content is now displayed immediately in `Content Manager`
+- Update banner in Toolbox will update both `com.beamable` and `com.beamable.server` package. 
+
+### Removed
+- `connectivityRoute` option in `config-defaults` no longer has any effect. All connectivity checks happen as part of the heart beat cycle every 5 seconds.
+
 ## [1.10.3]
 ### Changed
 - `IDependencyBuilder.Build()` accepts `BuildOptions` to control re-hydration options for dependency scopes
@@ -19,6 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tournament content can be scheduled for any ISO 8601 Period
 - Detect using invalid AA assets inside `LoadTexture` helper method for `AssetReferenceSprite`
 
+
 ## [1.10.1]
 ### Fixed
 - possible `NullReferenceException` during Content Manager initialization
@@ -27,6 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Player Account PSDK
 - `EditorDownloadBatchSize` setting in Content Configuration controls the batch download size for Content Manager. The default value is 100.
+- Added SDK support for a direct Websocket connection to Beamable services toggleable via realm configuration.
 
 ### Changed
 - Content Manager uses batch operations for better performance.
