@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.11.1]
 ### Changed
 - Expose Google Play Game Services `ForceRefreshToken` option and set it to `true` by default
+- Content checksums are calculated using alphabetical field sorting.
 
 ### Fixed
 - `PlayerInventory` triggers `OnDataUpdated` events.
