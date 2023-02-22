@@ -12,6 +12,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `PlayerInventory` triggers `OnDataUpdated` events.
 - `PlayerInventory` item properties can be `null` without throwing a `NullReferenceException`.
 
+### Issues
+- content checksum algorithm changed, and all content will appear different
+
 ## [1.11.0]
 ### Added
 - `PlayerInventory` supports storing player's inventory in offline mode
