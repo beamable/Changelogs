@@ -6,11 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.11.1]
 ### Changed
-- Expose Google Play Game Services `ForceRefreshToken` option and set it to `true` by default
+- Expose Google Play Game Services `ForceRefreshToken` option and set it to `true` by default. 
+- Content checksums are calculated using alphabetical field ordering.
 
 ### Fixed
 - `PlayerInventory` triggers `OnDataUpdated` events.
 - `PlayerInventory` item properties can be `null` without throwing a `NullReferenceException`.
+
+### Issues
+- All content will appear as modified. This is because the content checksum algorithm changed to use alphabetical field ordering.  
 
 ## [1.11.0]
 ### Added
