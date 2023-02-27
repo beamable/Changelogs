@@ -7,9 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Parse optional `proxyId` as `FederatedId` field for items related to `FederatedInventory` feature
+- Added posibility to disable property order dependence for content checksum.
 
 ### Changed
 - Exception on using `BeamContext` outside playMode
+- `Beamable.Common` assembly name changed to `Unity.Beamable.Runtime.Common` to align with assembly definition file.
 
 ### Fixed
 - Fixed slow SDK instalation process.
