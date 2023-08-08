@@ -9,18 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `RequestContext` now has a property `IsAdmin`
+- `Context` now has a property `IsAdmin`
 
 ### Fixed
 
 - Standalone Microservices that implement `IFederatedLogin<>` or `IFederatedInventory<>` now appear as federation options in linked Unity projects.
+- `GetTournamentInfo` is now obsolete, should use `GetRunningTournamentInfo` that returns the actual running cycle tournament info.
 
 ### Changed
 
 - `Context.CheckAdmin()` is now obsolete, should use `Context.AssertAdmin()`.
 - The `InitializeServicesAttribute` methods should be able to return a `Promise` instead of only a `Promise<Unit>`.
-
-### Removed
 
 ## [1.17.0]
 
