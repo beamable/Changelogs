@@ -5,7 +5,44 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.19.7]
+
+no changes
+
+## [1.19.6]
+
+no changes
+
+## [1.19.5]
+
+### Added
+
+- Auto generation handles trials and session services.
+
+### Changed
+
+- API code-gen now generates structs with properly initialized fields.
+
+## [1.19.4]
+
+### Fixed
+- `--reporter-use-fatal` channel supports JSON strings
+
+## [1.19.3]
+
+no changes
+
+## [1.19.2]
+
+### Fixed
+- `beam services deploy` no longer times out.
+
+### Changed
+ - Templates update with refactor to improve it receiving updates and fixes in the future.
+
+## [1.19.1]
+
+no changes
 
 ## [1.19.0]
 
