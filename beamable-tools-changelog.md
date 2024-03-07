@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.19.15]
+
+### Fixed
+- Progress bars and logs do not appear side by side.
+- Unreal Microservice client generation now correctly generates non-primitives used in C#MS signatures
+
 ## [1.19.14]
 
 ### Fixed
