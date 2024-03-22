@@ -9,7 +9,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Disabling Content inspectors no longer causes compiler errors.
 - Leaderboard `rankgt` field is not null when specifying outlier.
-- Fix renaming content throwing infinite warnings
 
 ## [1.19.15]
 ### Changed
