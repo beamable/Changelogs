@@ -5,10 +5,83 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.19.21]
+## [2.1.0]
+
+### Added
+- `--unmask-logs` option will show full tokens in verbose logs
+- `--no-log-file` option will prevent verbose logs from being written to temp file
+- `beam project enable` and `beam project disable` commands will set the `<BeamEnabled>` setting.
+- Can pass MSBuild dlls location through environment variable to the CLI
+- `beam services build` uses Docker Buildkit to build Standalone Microservice images
+- `beam services bundle` produces a `.tar` file for a Standalone Microservice
+- `--docker-cli-path` option overrides docker cli location used for Buildkit
+- `net8.0` support for Standalone Microservices
+- `beam project ps --raw` includes an `executionVersion` representing the version of the Beamable SDK being used in the service
 
 ### Changed
-- config files use indented JSON
+- Standalone Microservices are created with `net8.0` by default
+
+### Fixed
+- JSON output will correctly render optional types
+
+## [2.0.1] - 2024-06-17
+
+### Added
+- `--no-filter` option to `beam listen server`
+
+### Fixed
+- `beam project stop` will stop services running in docker
+- `beam service ps`  was not working when calling it because it was trying to get the ImageId of storage objects
+- common lib handling uses `.` as a default path instead of the empty string 
+- `UpdateDockerfile` update to fix common lib handling for docker builds
+
+### Changed
+ - `beam service ps` now doesn't have the `--remote` flag and always return information updated with both local and remote
+
+## [2.0.0] - 2024-05-24
+
+### Added
+
+- `--raw` option will output commands in machine readable JSON format
+- `beam listen player` command monitors notifications sent to the logged in CLI user
+- `beam listen server` command monitors server events
+- `beam project run` command will run a dotnet project
+- `beam project stop` will stop running dotnet projects
+- `beam project build` will build a dotnet project
+- Unreal Microservice client generation now correctly generates non-primitives used in C#MS signatures, including containers and nested containers.
+- Unreal Microservice client generation now happens for all microservices at once and support shared code.
+- `BEAM_DOCKER_URI` environment variable will override docker connection uri
+- Added Bulk Edit Content command to the CLI (`beam content bulk-edit`)
+
+### Changed
+
+- Updates the Serilog and Spectre dependencies.
+- Updated dotnet framework dependencies to maximize and enforce compatibility (minimum dotnet 6)
+- Commands will use `--raw` output automatically when piped to another process
+- Root commands with no action will automatically print `--help`
+- `docs`, `profile`, `generate-interface` and http commands are marked as `[INTERNAL]`
+- Commands automatically save the latest log to the temp path.
+- Commands will log single outputs as JSON by default.
+- Console logging no longer includes log level and timestamp.
+- Logs containing GUID based tokens will be masked and only the last 4 characters will be shown.
+- Unreal Microservice Client Code generation no longer appends the microservice name to serializable types.
+- Microservices install with current CLI version
+- Standalone Microservices no longer have a `LoadEnvironmentVariables` method, and connection strings are handled in the existing `Prepare` method.
+- `beam project generate-env` command writes a blank `.env` file and returns connection strings over STDOUT instead.
+- Generating microservice clients for Unreal now outputs them to a Plugin called `[ProjectName]MicroserviceClients` instead of placing it in some existing module.
+- Internal commands are hidden unless `--help-all` is passed.
+
+### Fixed
+
+- `project add` Dockerfile path fixes.
+- `project new-storage` path fixes.
+- Progress bars and logs do not appear side by side.
+- Fixed issue that caused incorrect code-gen of Unreal wrapper types in SAMS-Client code
+- Docker will not connect at common unix home directory if `/var/run/docker.sock` is not available
+
+### Removed
+
+- `beam content` no longer directly opens content folder.
 
 ## [1.19.17] - 2024-04-04
 ### Changed
@@ -28,7 +101,7 @@ no changes
 ## [1.19.14] - 2024-02-06
 
 ### Fixed
-- Docker path issue when adding storage objects 
+- Docker path issue when adding storage objects
 
 ## [1.19.13] - 2024-02-05
 no changes
@@ -103,7 +176,7 @@ no changes
 - `beam services deploy` no longer times out.
 
 ### Changed
- - Templates update with refactor to improve it receiving updates and fixes in the future.
+- Templates update with refactor to improve it receiving updates and fixes in the future.
 
 ## [1.19.1] - 2023-09-22
 
@@ -205,9 +278,9 @@ no changes
 
 - `beam project generate-ignore-file` command to generate an ignore file in config folder for given VCS
 - `beam services get-connection-string my-storage-name` retrieves the local connection string
-for the specified micro-storage
+  for the specified micro-storage
 - `beam services get-connection-string my-storage-name --remote` retrieves the remote connection string
-for the specified micro-storage
+  for the specified micro-storage
 - Add `--quiet` to ignore confirmation step when retrieving connection string
 
 ## [1.16.2] - 2023-07-12
