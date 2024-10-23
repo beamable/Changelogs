@@ -21,6 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - common lib handling uses `.` as a default path instead of the empty string 
 - `UpdateDockerfile` update to fix common lib handling for docker builds
 
+### Changed
+- `beam service ps` now doesn't have the `--remote` flag and always return information updated with both local and remote
+
 ## [2.0.0] - 2024-05-24
 
 ### Added
@@ -65,6 +68,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - `beam content` no longer directly opens content folder.
+
+## [1.19.22] - 2024-07-19
+no changes
+
+## [1.19.21] - 2024-06-18
+
+### Changed
+- config files use indented JSON
 
 ## [1.19.17] - 2024-04-04
 ### Changed
