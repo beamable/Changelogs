@@ -5,6 +5,39 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0]
+
+### Added
+- `net8.0` support for Standalone Microservices
+- Microservices can accept federation traffic locally without needing to be deployed 
+- `--unmask-logs` option will show full tokens in verbose logs
+- `--no-log-file` option will prevent verbose logs from being written to temp file
+- `beam project enable` and `beam project disable` commands will set the `<BeamEnabled>` setting.
+- Can pass MSBuild dlls location through environment variable to the CLI
+- `beam services build` uses Docker Buildkit to build Standalone Microservice images
+- `beam services bundle` produces a `.tar` file for a Standalone Microservice
+- `--docker-cli-path` option overrides docker cli location used for Buildkit
+- `beam project ps --raw` includes an `executionVersion` representing the version of the Beamable SDK being used in the service
+- `beam project ps --raw` includes an `processId` and `routingKeys` representing the locally running OS process id, if any, and the list of routing keys currently registered with the Beamable backend for that service.
+- `beam project run` args modified: `--watch` is no longer supported due to underlying .NET issues. Added `--detach` to make it so that, after the service starts, we exit the command (the service stays running as a background process; stopped by `beam project stop` command).
+- `oapi download` flag `--combine-into-one-document` for combining OpenAPI documents into one
+- `beam deploy` command suite for planning and releasing deployments
+- `beam portal` command suite for opening Portal
+- `beam player` command suite for inspecting player data
+- Microservices can have local developer settings in the `.beamable/temp/localDev` folder
+
+### Changed
+- Standalone Microservices are created with `net8.0` by default
+- CLI uses local dotnet tool installation by default instead of global installation
+- Microservice federations must exist in a special config file, `federations.json`
+- `beam project open-swagger` now takes in `--routing-key` as opposed to `--remote`. Not passing `--routing-key` gives you the same behavior as passing `--remote`.  
+- `temp clear logs` command will clear old log files in the `.beamable/temp/logs` folder.
+- CLI log files are kept in the `.beamable/temp/logs` folder and are cleared after each day if the total number of log files exceeds 250
+
+### Fixed
+- JSON output will correctly render optional types
+- DockerHub 4.31 is supported via microservices using `host.docker.internal` instead of `gateway.docker.internal` to communicate to `localhost`
+
 ## [2.0.2] - 2024-09-25
 
 ### Added
@@ -22,6 +55,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `UpdateDockerfile` update to fix common lib handling for docker builds
 
 ### Changed
+
 - `beam service ps` now doesn't have the `--remote` flag and always return information updated with both local and remote
 
 ## [2.0.0] - 2024-05-24
@@ -68,6 +102,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - `beam content` no longer directly opens content folder.
+
+## [1.19.23] - 2024-10-23
+no changes
 
 ## [1.19.22] - 2024-07-19
 no changes
