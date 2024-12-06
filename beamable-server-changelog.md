@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.1] - 2024-12-09
+- Fixed issue that caused the OAPI Generation to fail with an exception if you put `BeamGenerateSchema` on a type that was already used in a `Callable` signature.
+  - This implies that you can now reuse `BeamGenerateSchema` types for both custom notifications AND `Callable` signatures.
+
 ## [3.0.0] - 2024-12-04
 
 ### Added
@@ -24,6 +28,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `IThirdPartyCloudId` subtypes require a `[FederationId]` attribute with a string argument equal to the old `.UniqueName` property
 - Microservice projects should reference `Beamable.Microservice.SourceGen`
 - Microservice uses `routingKey` instead of `prefix` for HTTP routing
+- `AssumeUser` was renamed to `AssumeNewUser`
+- `RequestDataHandler` was renamed to `UserRequestDataHandler`
 
 ### Fixed
 - services running locally will use adaptive port bindings to avoid port collisions
