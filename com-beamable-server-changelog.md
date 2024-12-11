@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+
+## [2.0.0] - 2024-12-11
+
+### Changed
+- Unity Microservices become Beamable Standalone Microservices. Services exist in a sibling folder to `/Assets` called `/BeamableServices`. 
+- _Microservice Manager_ window replaced with _Beam Services_ window
+- Unity Microservice assembly references and storage references are controlled in _Beam Services_ window instead of associated Assembly Definition.
+- _Beam Services_ window release flow does not offer opportunity to disable & enable services at publish time. Instead, all services are assumed to be enabled. 
+- _Beam Services_ window only shows one service at a time instead of showing small cards for all services simulatenously. Use the drop-down to change the focused service. 
+- _Beam Services_ window re-written without using UIToolkit 
+- Deleting a Unity Microservice will automatically archive the service on the next release
+
+### Fixed
+- Unity Playmode will send Microservice traffic to locally running services even if the service started after entering Playmode.
+
+### Added
+- Unity Microservices have ability to modify the Dockerfile
+- Unity Microservices have ability to modify the `.csproj` file
+- Unity Microservices have ability to modify the `Program.cs` file for custom bootup logic
+
+### Removed
+- Unity Microservices no longer have an associated Assembly Definition
+- Unity Microservices no longer use _Build Hooks_ to configure Dockerfile. Instead, the Dockerfile may be edited directly
+- `CsProjFragment.xml` file no longer supported. Instead, modify the `.csproj` file directly.
+
+## [1.19.23] - 2024-10-23
+
+no changes
+
 ## [1.19.22] - 2024-07-19
 ### Added
 - _Project Settings/Editor_ now has a `CustomPathInclusions` field that will update your $PATH variable for the lifecycle of the Unity application
@@ -22,7 +51,7 @@ no changes
 
 ## [1.19.19] - 2024-05-22
 ### Fixed
-- Mongo express no longer prompts for additional username and password.  
+- Mongo express no longer prompts for additional username and password.
 
 ## [1.19.18] - 2024-05-08
 ### Fixed
@@ -31,7 +60,7 @@ no changes
 - Content downloads from Microservice no longer have SSL validation issues
 
 ### Changed
-- `async void` methods are not allowed in Microservices, and will cause the Microservice to fail. Instead, consider using methods with `async Task`, or `async Promise`. 
+- `async void` methods are not allowed in Microservices, and will cause the Microservice to fail. Instead, consider using methods with `async Task`, or `async Promise`.
 
 
 ## [1.19.17] - 2024-04-04
@@ -40,7 +69,7 @@ no changes
 
 ## [1.19.16] - 2024-03-2
 ### Added
-- `AssumeNewUser` replaced `AssumeUser`, and offers memory usage improvements and extended configurability. 
+- `AssumeNewUser` replaced `AssumeUser`, and offers memory usage improvements and extended configurability.
 - `Beamable.UnityEngine.Addressables` exists and contains mock addressable types that used to exist in `Beamable.UnityEngine`, allowing Standalone Microservice projects to properly reference Addressable types in Unity.
 
 ### Changed
@@ -49,7 +78,7 @@ no changes
 ## [1.19.15] - 2024-03-07
 
 ### Fixed
-- `[Callable]` methods no longer produce `AccountNotFoundError` errors when emitting Beamable API calls with valid playerIds. 
+- `[Callable]` methods no longer produce `AccountNotFoundError` errors when emitting Beamable API calls with valid playerIds.
 - Microservices have improved thread-safety when sending messages to Beamable.
 
 ## [1.19.14] - 2024-02-06
@@ -511,7 +540,7 @@ no changes
 ### Fixed
 
 - Manually adding a `StorageObject` Assembly Definition as a dependency of a `Microservice`'s Assembly Definition now correctly sets up all the necessary Mongo DLLs for the `StorageObject` to be usable inside the Microservice.
-You can disable this behaviour by setting `MicroserviceConfiguration.EnsureMongoAssemblyDependencies = false`. The recommended way to do set service dependencies is still to use the Dependency button of the Microservice Manager Window.
+  You can disable this behaviour by setting `MicroserviceConfiguration.EnsureMongoAssemblyDependencies = false`. The recommended way to do set service dependencies is still to use the Dependency button of the Microservice Manager Window.
 
 ## [1.3.1] - 2022-08-18
 
@@ -820,7 +849,7 @@ no changes
 
 - `ApiContent` classes and execution methods allow you to invoke microservices with data
 - `InitializeServicesAttribute` can now be used over static methods to declare initialization hooks in microservices.
-Supported signatures are async/regular `Task(IServiceInitializer)`, async/regular `Promise<Unit>(IServiceInitializer)` and synchronous `void(IServiceInitializer)`.
+  Supported signatures are async/regular `Task(IServiceInitializer)`, async/regular `Promise<Unit>(IServiceInitializer)` and synchronous `void(IServiceInitializer)`.
   `void` methods must be fully synchronous --- it is not possible to guarantee that any promises started within a `void` initialization
   method will have completed by the time the microservice is receiving traffic.
 - Exposed `CreateLeaderboard` methods in `IMicroserviceLeaderboardsApi` to enable the dynamic creation of leaderboards in microservices (can take a `LeaderboardRef` as a template or explicit parameters).
