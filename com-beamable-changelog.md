@@ -5,13 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.0.1]
 
-### Fixed
-
-- `Party.Invite()` no longer throws a null reference exception. [#3797](https://github.com/beamable/BeamableProduct/issues/3797)
-- `WebSocketConnection` no longer throws `WebSocketConnectionException` during normal reconnect flows
-- `WebSocketConnection` will use the most recent JWT to attempt reconnection
+### Changed
+- Unity uses CLI to 3.0.2
 
 ## [2.0.0] - 2024-12-11
 
