@@ -14,7 +14,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `WebSocketConnection` no longer throws `WebSocketConnectionException` during normal reconnect flows
 - `WebSocketConnection` will use the most recent JWT to attempt reconnection
-- Possible `NRE` when opening the Beamable Button while having never logged in
 
 ### Fixed
 
