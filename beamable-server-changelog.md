@@ -5,7 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - 2025-01-24
+
+### Added
+- Providing `BEAM_REQUIRE_PROCESS_ID` environment variable will cause microservice to quit when configured process terminates. [#3839](https://github.com/beamable/BeamableProduct/issues/3839)
+- Player initialization support through `IFederatedPlayerInit` interface. [#3838](https://github.com/beamable/BeamableProduct/issues/3838)
+- Added `CallableFlags` to all `Callable` attributes. You can now use this to opt-out of client-code generation for specific `Callables` (mostly used for hiding `AdminOnlyCallables` from client source). 
+
+### Changed
+- Updated MongoDb.Driver reference to 2.19.2 in accordance with [known security vulnerability](https://github.com/advisories/GHSA-7j9m-j397-g4wx)
+
+### Removed
+- No longer support net6.0 or net7.0
+
 ## [3.0.1] - 2024-12-09
+
+### Fixed
 - Fixed issue that caused the OAPI Generation to fail with an exception if you put `BeamGenerateSchema` on a type that was already used in a `Callable` signature.
   - This implies that you can now reuse `BeamGenerateSchema` types for both custom notifications AND `Callable` signatures.
 
