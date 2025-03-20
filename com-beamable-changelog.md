@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
-- Open portal on user realm, don't force the editor one.
+- Admin Console - opens portal on user realm instead of the editor one. Useful when realm changed in runtime.
 
 ## [2.1.3] - 2025-03-10
 
