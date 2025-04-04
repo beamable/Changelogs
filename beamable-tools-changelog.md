@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.2.0] - 2025-04-04
+### Changed
+- `beam deploy` commands use solution level building instead of per-project [#3952](https://github.com/beamable/BeamableProduct/issues/3952)
+- `beam project open` command can create a `.slnf` file to show a subset of projects based on the Unity project perspective.
+- Refactor on `IstatsApi` and `IMicroserviceStatsApi` to now have new methods to handle Stats with better naming and usability. Older methods were flagged as `Obsolete`
+
+### Fixed
+- `beam project generate-client` creates clients with correct `ISupportsFederation` style interfaces directly from the CLI by loading available `IFederationId` types [#3958](https://github.com/beamable/BeamableProduct/issues/3958)
+- `beam project open` works with Visual Studio
+- `beam init` will save extra path files even when reinitializing a `.beamable` folder
+
+### Added
+- `beam deploy release` shows CID/PID information as part of release confirmation [#3954](https://github.com/beamable/BeamableProduct/issues/3954)
+- `beam checks scan` command recognizes missing `.dockerignore` configuration where "!**/beamApp" is required as final line.
+- `beam project generate-client` supports `--output-unity-projects` flag to specify custom Unity project output paths in addition to linked projects
 
 ## [4.1.5] - 2025-03-26
 ### Fixed
