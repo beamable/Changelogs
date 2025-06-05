@@ -24,14 +24,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `beam org realms` command that prints out a list of all available realms for the requesting user.
 - Added an --admin flag for Beam Me Command, that fixes the costumer token being scoped by realm for this request. 
 - New `beam content` command pallet for SAMS and Engine-integration usage.
+- CLI can emit open telemetry data when `BEAM_TELEMETRY` environment variable is enabled.
  
 ### Changed
 - Revise the categorization of all Blueprint nodes to enhance discoverability.
 - `OptionalString` overrides `.ToString()` for easier print debugging.
 - Changes on MicroserviceBootstrapper to allow the creation of OAPI document after building the Microservice
-- `beam me` command now also gives you back your active token information
+- `beam me` command now also gives you back your active token information, but no longer gives you the `deviceIds` for a user
 - `beam init -q --cid my-game --username my@email.com --password my_password` now honors the quiet flag correctly. It'll auto-select the realm as the oldest development realm.
 - `IAccessToken`, the interface representing a Beamable access/refresh token pair, now exposes the `IssuedAt`/`ExpiresIn` data in addition to the `ExpiresAt` date.
+- `beam checks scan` includes fixes for CLI 5 upgrade
+- Logging uses `ZLogger` instead of `Serilog`
 
 ### Fixed
 - Fixed an issue in which running `beam deploy release` when CID was an alias resulted in an error in execution.
