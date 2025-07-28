@@ -5,9 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [5.1.0]
+## [5.2.0]
 ### Added
-- Added Developer User Manager command `developer-user-manager`, which is responsible for management of multiple developers users that can be attached when you starting a new session in the engine.
+ - Added a new command `project generate web-client `, which generates typescript/javascript web client code for calling c# microservices.
+ - New Static Analyzer for Generic Types on `Microservice` classes; 
+
+### Fixed
+- `beam deploy` commands handle non JSON `docker build` logs, which fixes error where builds couldn't find the docker image id of successfully built services. 
+
+## [5.1.0] - 2025-07-23
+### Added
   - `developer-user-manager ps` command that watches your developer users files to check if there's any user created/removed/updated.
   - `developer-user-manager create-user-batch` command that create multiple developer users in a batch, it can received a list of templates to copy from.
   - `developer-user-manager create-user` command that can create one developer user.
