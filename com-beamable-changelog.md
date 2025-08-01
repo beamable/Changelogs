@@ -5,33 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [3.0.0]
+## [2.4.3] - 2025-08-01
+### Fixed
+- TMP import infinite callback.
 
 ### Changed
-- Heartbeats are no longer sent when Realm is configured to use the Beamable websocket. 
-- Able to use the new Client Code Generator from CLI that uses OpenAPI instead of the old one that uses Reflection
-- `Core.Platform.Api` namespace moved into `Beamable.Api` namespace
-- `Core.Platform` namespace moved into `Beamable` namespace
-- Updated `Schedule Definition` Property Drawers to use `cron` expression values for better usability and flexibility in scheduling.
-- Upgrade CLI to 5.3.0
-- Beamable button includes SDK version number
+- Upgrade CLI to 4.3.4
 
-### Fixed
-- `Beam.SwitchToPid` resets content instance [3547](https://github.com/beamable/BeamableProduct/issues/3547)
-- _Beam Services_ "generate client on build" setting stays configured between editor restarts
-- Beamable button visual behaviour is consistent between all supported Unity versions
-
-### Removed
-- Admin console command `HEARTBEAT` has been removed.
-- Beamable no longer attempts to automatically configure _Text Mesh Pro_ and _Addressables_.
-- Beamable Environment Switcher is now part of the login flow.
-
+## [2.4.2] - 2025-07-23
 ### Added
-- New Login window that uses CLI workflows rather than storing editor login information twice. 
-- New Content Manager window that uses CLI workflows and receives dynamic updates.
-- `BeamEditorContext.Microservices` property allows access to Microservice clients at editor time. [4102](https://github.com/beamable/BeamableProduct/issues/4102)
-- New Validation for Cron Schedule Definition
+- `BEAM_DISABLE_DEPENDENCIES_CHECK` scripting symbol will disable TMP and Addressable dependency check.
 
+## [2.4.1] - 2025-07-22
+### Fixed
+- Beamable Editor only checks for TMP and Addressable dependencies once per session.
 
 ## [2.4.0] - 2025-06-11 
 
@@ -45,12 +32,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Upgrade CLI to 4.3.1
 - Bake content will bake content from realm that is provided by `config-defaults` (used in builds) when available. Instead of using local content and requiring it to be the same as remote one, it will download and bake currently deployed manifest and its content.
-
-### Removed
-- Mongo third party libraries no longer exist
-- SharpCompress third party library no longer exists
-- dotnet `System` namespace dlls no longer exist
-- Microservice types no longer exist in the Unity SDK
 
 ## [2.3.0] - 2025-05-08
 
