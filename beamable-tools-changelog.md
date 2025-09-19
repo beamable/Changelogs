@@ -7,7 +7,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Added `microServiceId` field to `MicroserviceServiceProviderRequest` to enable backend service grouping for proper microservice instance counting
+- `beam deploy plan` includes new `--docker-compose-directory` option to generate a docker compose project that can be used to run services locally
+- `beam project generate-env` no longer includes realm secret by default. Pass `--include-secret` to opt into realm secret. 
+- `beam project generate-env` can write a `.env` file of required environment variables by passing a `.env` file path to the command. 
+
+### Changed
+- Change `snapshots` for content now support multiple per realm snapshots for contents instead of only one main snapshot folder.
+- Event subscriptions use the developer's access token for authentication instead of the realm secret. 
+- `beam services` command suite is marked as internal
+- Rider IDE will be forced to re-run Beamable targets on project builds
+
+
+## [5.4.1] - 2025-08-29
+### Fixed
+ - Fixed an issue with how `beam content publish` command retrieves information from the developer user. This resolves potential lockups that could occur in certain realms during content publishing.
+
+## [5.4.0] - 2025-08-27
+### Added
 - Support `ts` and `js` shorthand for the `--lang` option in the `project generate web-client` command.
+- `beam content snapshot` command creates a new snapshot based on your local contents.
+- `beam content restore` command takes `--name` to restore your local content based on the snapshot path or name. It can also take `--delete-after-restore` to delete the snapshot after restoring it.
+- `beam content snapshot-list` command list all snapshots under the local and shared folders with the changes for each content.
+- New utilities in the Lobby that helps handling server provisioning and updates in the player/global data.
+- `IFederatedGameServer`'s `ServerInfo` schema now allows for modifying other lobby properties than just player/global data.  
+
+### Changed
+- Changed how `beam fed list` finds the implemented federations. Now `federation.json` is obsolete and replaced by the OpenApi specifications. 
+- Changed how federations are detected. Federation.json is not needed anymore, instead the federations are found by openApi specs.
+- Removed CodeAnalyzers and CodeFixers that were validating federation from Federation.json
+
+### Fixed
+- Projects using the `project-root-path.json` file can now use `beam services run` again, [4323](https://github.com/beamable/BeamableProduct/issues/4232)
+- Announcements deserialization issue which weren't correctly deserializing Announcements gift [4228](https://github.com/beamable/BeamableProduct/issues/4228)
+
+### Removed
+- `beam fed add` Command as it isn't being used anymore
+- `beam fed remove` Command as it isn't being used anymore
+- `beam fed set` Command as it isn't being used anymore
 
 ## [5.3.1] - 2025-08-06
 ### Fixed
