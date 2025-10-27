@@ -1,9 +1,10 @@
 # Draft Changelog
 
-## [Draft] - 
+## [Sample Release] - 
 
 ### Fixed
 - test
+- example bug
 
 ### Changed
 - blah
