@@ -5,6 +5,73 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Added
+- Unity 6.3 Support
+- Dotnet 10 Support
+
+### Changed
+- Update CLI to 7.0.0
+
+## [4.0.2] - 2025-11-20
+### Changed
+- Update CLI to 6.2.1, to fix content serialization issue
+
+## [4.0.1] - 2025-11-20
+### Fixed
+- file locking issue when attempting to install Beam CLI
+
+## [4.0.0] - 2025-11-19
+### Added
+- Added support to additional snapshot restore on Editor.
+
+### Fixed
+- Issue where DLL were not being properly loaded to Microservices on Windows
+- Added a scrollbar in Account Window when logged
+- Fixed an issue which the `Create a new Organization` and `Forgot password` on Beam Account were not opening the portal
+- Fixed `Sharing Violation Error` when having a content open in any text file editor while Unity reads it.
+- Fixed ContentRef fields now display correctly without needing to open the ContentManager window
+- Fixed an issue with the Player SDK Leaderboard throwing a Null Reference when trying to get a Board.
+
+### Changed
+- Improved Beamable CLI installation reliability with automatic retry mechanism (up to 5 attempts) on timeout failures, along with enhanced error messaging for troubleshooting.
+- Improved Beam Accounts window when the `config-defaults.txt` is missing values. 
+- Updated Beam CLI version to 6.2.0
+
+## [3.1.7] - 2025-12-05
+### Fixed
+- Fixed schema mismatches during content deserialization not triggering an update to the local ScriptableObject.
+- Fixed an issue where the Content Inspector would not update when a content item was renamed.
+- Fixed an issue when deleting a content the inspector window would not properly update.
+
+### Changed
+- Bumped CLI Version to 5.4.3
+
+## [3.1.6] - 2025-11-13
+### Fixed
+- Fixed an issue with Content Baking in batchMode failing to load all contents in time, which could result in missing assets in the final build.
+
+## [3.1.5] - 2025-10-10
+### Fixed
+- Fixed an `IndexOutOfRangeException` occurring when using the Content Editor Window.
+- Fixed an issue where button to create a new snapshot was not displayed when no snapshots existed.
+ 
+## [3.1.4] - 2025-10-7
+### Fixed
+- Fixed an issue where content drawer was not including subtype contents
+
+## [3.1.3] - 2025-10-6
+### Fixed
+- Fixed an issue where renaming a content item in a virtual scroll view would fail.
+- Fixed an issue where searching for items of a content subtype was not being found.
+- Fixed an issue where updates to content did not trigger a repaint in the Content Editor.
+
+## [3.1.2] - 2025-09-24
+### Fixed
+- Unity performance issue from calling some CLI commands in a short period of time
+### Changed
+- Bumped CLI Version to 5.4.2
+
 ## [3.1.1] - 2025-08-29
 ### Changed
 - Bumped CLI Version to 5.4.1
