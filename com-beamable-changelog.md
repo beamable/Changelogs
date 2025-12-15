@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.3] - 2025-12-15
+### Changed
+- Update CLI to 6.2.2
+
 ## [4.0.2] - 2025-11-20
 ### Changed
 - Update CLI to 6.2.1, to fix content serialization issue
@@ -27,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Improved Beamable CLI installation reliability with automatic retry mechanism (up to 5 attempts) on timeout failures, along with enhanced error messaging for troubleshooting.
-- Improved Beam Accounts window when the `config-defaults.txt` is missing values. 
+- Improved Beam Accounts window when the `config-defaults.txt` is missing values.
 - Updated Beam CLI version to 6.2.0
 
 ## [3.1.7] - 2025-12-05
@@ -80,7 +84,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [3.0.0] - 2025-08-05
 
 ### Changed
-- Heartbeats are no longer sent when Realm is configured to use the Beamable websocket. 
+- Heartbeats are no longer sent when Realm is configured to use the Beamable websocket.
 - Able to use the new Client Code Generator from CLI that uses OpenAPI instead of the old one that uses Reflection
 - `Core.Platform.Api` namespace moved into `Beamable.Api` namespace
 - `Core.Platform` namespace moved into `Beamable` namespace
@@ -99,7 +103,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Beamable Environment Switcher is now part of the login flow.
 
 ### Added
-- New Login window that uses CLI workflows rather than storing editor login information twice. 
+- New Login window that uses CLI workflows rather than storing editor login information twice.
 - New Content Manager window that uses CLI workflows and receives dynamic updates.
 - `BeamEditorContext.Microservices` property allows access to Microservice clients at editor time. [4102](https://github.com/beamable/BeamableProduct/issues/4102)
 - New Validation for Cron Schedule Definition
@@ -119,7 +123,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Beamable Editor only checks for TMP and Addressable dependencies once per session.
 
-## [2.4.0] - 2025-06-11 
+## [2.4.0] - 2025-06-11
 
 ### Fixed
 - Fixed issue that CloudSaving could generate corrupted save files if the application was closed during saving process.
