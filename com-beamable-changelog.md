@@ -5,9 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.0.3] - 2025-12-15
+## [5.0.0]
+### Added
+- Unity 6.3 Support
+- Dotnet 10 Support
+- Add `LogFormat` and `LogWarningFormat` to BeamableLogger, to parallel the existing `LogErrorFormat` method
+
 ### Changed
-- Update CLI to 6.2.3
+- Update CLI to 7.0.0
+
+### Fixed
+- Sudden account switching no longer accidentally happens when unpredictable errors happen during account switching [4321](https://github.com/beamable/BeamableProduct/issues/4321)
+- Fixed unexpected GC allocation on Unity Editor during Domain Reloads from GetUnparsedCrashLogs function [4425](https://github.com/beamable/BeamableProduct/issues/4425)
+- Editor allows user to switch between Beamable games [4456](https://github.com/beamable/BeamableProduct/issues/4456)
 
 ## [4.0.2] - 2025-11-20
 ### Changed
@@ -31,7 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Improved Beamable CLI installation reliability with automatic retry mechanism (up to 5 attempts) on timeout failures, along with enhanced error messaging for troubleshooting.
-- Improved Beam Accounts window when the `config-defaults.txt` is missing values.
+- Improved Beam Accounts window when the `config-defaults.txt` is missing values. 
 - Updated Beam CLI version to 6.2.0
 
 ## [3.1.7] - 2025-12-05
@@ -51,7 +61,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed an `IndexOutOfRangeException` occurring when using the Content Editor Window.
 - Fixed an issue where button to create a new snapshot was not displayed when no snapshots existed.
-
+ 
 ## [3.1.4] - 2025-10-7
 ### Fixed
 - Fixed an issue where content drawer was not including subtype contents
@@ -84,7 +94,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [3.0.0] - 2025-08-05
 
 ### Changed
-- Heartbeats are no longer sent when Realm is configured to use the Beamable websocket.
+- Heartbeats are no longer sent when Realm is configured to use the Beamable websocket. 
 - Able to use the new Client Code Generator from CLI that uses OpenAPI instead of the old one that uses Reflection
 - `Core.Platform.Api` namespace moved into `Beamable.Api` namespace
 - `Core.Platform` namespace moved into `Beamable` namespace
@@ -103,7 +113,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Beamable Environment Switcher is now part of the login flow.
 
 ### Added
-- New Login window that uses CLI workflows rather than storing editor login information twice.
+- New Login window that uses CLI workflows rather than storing editor login information twice. 
 - New Content Manager window that uses CLI workflows and receives dynamic updates.
 - `BeamEditorContext.Microservices` property allows access to Microservice clients at editor time. [4102](https://github.com/beamable/BeamableProduct/issues/4102)
 - New Validation for Cron Schedule Definition
@@ -123,7 +133,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Beamable Editor only checks for TMP and Addressable dependencies once per session.
 
-## [2.4.0] - 2025-06-11
+## [2.4.0] - 2025-06-11 
 
 ### Fixed
 - Fixed issue that CloudSaving could generate corrupted save files if the application was closed during saving process.
