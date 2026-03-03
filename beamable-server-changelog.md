@@ -91,6 +91,7 @@ no changes
 - `BeamScheduler.GetJobActivity` is obsolete and `GetAllJobActivity` should be used instead
 - Microservice logging uses `Zlogger` instead of `Serilog`
 
+
 ## [4.3.0] - 2025-05-08
 
 ### Added
