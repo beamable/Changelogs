@@ -131,8 +131,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `BeamEditorContext.Microservices` property allows access to Microservice clients at editor time. [4102](https://github.com/beamable/BeamableProduct/issues/4102)
 - New Validation for Cron Schedule Definition
 
-## [2.4.4] - 2026-03-03
+## [2.4.5] - 2026-03-17
+
 ### Changed
+
+- Upgrade CLI to 4.3.6
+- Backported content serialization performance improvements [4123](https://github.com/beamable/BeamableProduct/issues/4123)
+
+## [2.4.4] - 2026-03-03
+
+### Changed
+
 - Upgrade CLI to 4.3.5
 
 ## [2.4.3] - 2025-08-01
@@ -162,12 +171,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Upgrade CLI to 4.3.1
 - Bake content will bake content from realm that is provided by `config-defaults` (used in builds) when available. Instead of using local content and requiring it to be the same as remote one, it will download and bake currently deployed manifest and its content.
-
-### Removed
-- Mongo third party libraries no longer exist
-- SharpCompress third party library no longer exists
-- dotnet `System` namespace dlls no longer exist
-- Microservice types no longer exist in the Unity SDK
 
 ## [2.3.0] - 2025-05-08
 
