@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-05-27
+
+### Added
+
+- Generated Stripe payment API calls: checkout sessions, webhook setup, and return URLs.
+
+### Changed
+
+- Updated auto-generated APIs and content manifest schemas to latest OpenAPI specs.
+
+### Fixed
+
+- Fixed useless regex escapes in `BeamJsonUtils`.
+- Fixed session-start event for Athena pipeline.
+
 ## [1.1.1] - 2026-04-16
 
 ### Fixed
