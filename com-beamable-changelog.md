@@ -5,18 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [5.1.0] - 2026-05-24
+### Added
+- Added `OmitContentManifestTags` option to `ContentConfiguration` to opt out of content tag download in the public manifest. Tag-based `ContentQuery` filters (e.g. `tag:weapon`) return no results when this is enabled. [4597](https://github.com/beamable/BeamableProduct/issues/4597)
+- Added in-window Content Manager progress for sync and revert operations.
+- Added editor content sync download concurrency configuration.
+- Implemented new Admin Console feature
+
 ### Fixed
+- Improved content sync resilience for transient SSL/socket reset download failures.
 - Deserialization issue with `properties` field in Score Items of Events
 - Fixed an issue where the Unity Editor would not detect changes to Icon subObject (for Sprites in Multiple Mode) and thus not saving it correctly
-<<<<<<< fix/contentNullFields
+- Fixed CLI web command spamming `ObjectDisposedException` when the local CLI server is unreachable [4581](https://github.com/beamable/BeamableProduct/issues/4581)
 - Fixed an issue when creating a new Content Object some Optional and string values were null instead of default values.
-=======
 - Fix issue where Critical log errors where not being parsed to Unity LogLevels.
->>>>>>> main
+- Fix periodic freeze caused by telemetry collector polling.
 
 ### Changed
 - Added support to configure Max Parallel Service Build count on MicroserviceConfiguration.
+- Reworked Lightbeam samples
+- Changed default gem icon
+- "Beam Library" Window is now "Beam Samples" Window and was updated with latest docs and samples
+- AdminFlow prefab (ConsoleFlow) was removed from the Beam Samples Window and is now considered Deprecated
 
 ## [5.0.1] - 2026-04-02
 ### Fixed
