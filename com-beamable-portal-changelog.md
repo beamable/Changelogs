@@ -2,8 +2,61 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [1.7.0] - 2026-06-04
+
+### Added
+
+- listing editing- combo box for selecting to which store listing should be added
+
+### Fixed
+
+- listing editing - `buttonText` is optional as it should, invalid datetime error fix
+
+### Changed
+
+- Send Mail and in-game mail campaigns now default the Category field to
+  `GAME.REWARD`. Messages sent with `GAME.REWARD` show a Claim button
+  in-game and apply attached rewards; messages sent with `SYSTEM.DB` show
+  a Confirm button and do not apply rewards. The field remains editable.
+- Campaigns stored with a `SYSTEM.DB` category now display that value
+  explicitly in the campaign form rather than showing the field as blank.
+- The API Usage page loads large usage reports faster and more reliably,
+  refreshes its charts in the background, and keeps the filters and chart
+  totals consistent with one another.
+
+## [1.6.1] - 2026-03-17
+
+### Fixed
+- Redeploying microservices no longer reverts log view
+- Promoting microservices between realms no longer reverts log view
+
+## [1.6.0] - 2026-01-07
+
+### Added
+- New Job Scheduler form
+- Events filtering by content tag
+- Added ability to insert store listings at the top or bottom of the list
+
+### Changed
+- Commerce Catalog hides "amount" field when listing cost is SKU
+- Preview/save dialog displays any external Realm Config changes so admins are warned of others' edits before saving.
+
+### Fixed
+- Resolved Third Party Association/Transfer throwing exception due to invalid account ID being passed
+- Fixed incorrect status for recurring events
+- Fixed problem with archiving realms
+- Corrected a bug that incorrectly displayed the 'association transferred successfully' message when the underlying association transfer request failed (e.g., due to network loss)
+- The "Deprecated" badge for inventory items will no longer be incorrectly displayed
+- Now Freeze time is properly set when Creating a leaderboard through the portal
+- Per-key Realm Config updates is used to prevent race conditions and accidental overwrites when multiple admins edit simultaneously.
+- Disabled attribute action in log details pop-up when the action is already applied
+- Refreshing the logs table also refreshes the filter sidebar in Log Explorer.
+- `basic/realms/customer` responses use bigInt parsing
 
 ## [1.5.0] - 2025-10-14
 
@@ -73,38 +126,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Logs for C#MS sometimes stop appearing
 
-## [1.2.0] - 2023-05-06
-
-### Changed
-
-- Message Campaigns In-Game Mail campaigns support specifying an optional Category (similar to channel in Announcements).
-- Retention table now distinguishes between 0% retention and unavailable data.
-- Retention table default date range window now only shows full days and no longer suffers from off by one.
-- Message Campaigns for Announcements now properly handle legacy Entitlement Attachments.
-- Player Events page will always show rewards.
-- Players > Events page now renders the event id as a link which takes you to the corresponding event details page.
-- Players > Events page now shows the leaderboard Id that a player has been assigned to (if available) and renders it as a link.
-- Events now support changing Event Rewards for currently running events (as well as upcoming events).
-
-### Added
-
-- `Promote Realm` with the production realm as the source is now possible (with a warning displayed).
-- Microservices now show “status” when they are deploying.
-- Portal users can now disable/enable Microservices and Storage Objects Operate > Microservices section.
-- Operations performed by Portal users are now logged in analytics and viewable from Realm > Analytics as a new table called client_portal_audit.
-- New `Download Logs` button will export view of logs into a flat file you can download.
-- New api & microservice usage graphs segmented by realms and services now available in under Account > API Usage.
-- Player Profile will now show external, custom authentication schemes (such as web3 wallet association) under Player Associations alongside social login.
-
-### Fixed
-
-- Clearing an entire leaderboard will no longer result in a 404 Error.
-- Removing player from leaderboard in Players > Leaderboards page no longer results in a malformed and failed request.
-- Players > Leaderboards section will load dramatically faster for customers with large numbers of leaderboards.
-- Fixed missing Microservices Deployment Status.
-- Fixed incorrect visualization for Player geolocation.
-
-## [1.1.0] - 2024-01-23
+## [1.2.0] - 2024-01-23
 
 ### Fixed
 
@@ -144,6 +166,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Admin navbar section is now expanded by default
 - API usage dashboard omits non-billable calls
 - No longer possible to archive a realm if you have microservices running in the realm
+
+## [1.1.0] - 2023-05-06
+
+### Changed
+
+- Message Campaigns In-Game Mail campaigns support specifying an optional Category (similar to channel in Announcements).
+- Retention table now distinguishes between 0% retention and unavailable data.
+- Retention table default date range window now only shows full days and no longer suffers from off by one.
+- Message Campaigns for Announcements now properly handle legacy Entitlement Attachments.
+- Player Events page will always show rewards.
+- Players > Events page now renders the event id as a link which takes you to the corresponding event details page.
+- Players > Events page now shows the leaderboard Id that a player has been assigned to (if available) and renders it as a link.
+- Events now support changing Event Rewards for currently running events (as well as upcoming events).
+
+### Added
+
+- `Promote Realm` with the production realm as the source is now possible (with a warning displayed).
+- Microservices now show “status” when they are deploying.
+- Portal users can now disable/enable Microservices and Storage Objects Operate > Microservices section.
+- Operations performed by Portal users are now logged in analytics and viewable from Realm > Analytics as a new table called client_portal_audit.
+- New `Download Logs` button will export view of logs into a flat file you can download.
+- New api & microservice usage graphs segmented by realms and services now available in under Account > API Usage.
+- Player Profile will now show external, custom authentication schemes (such as web3 wallet association) under Player Associations alongside social login.
+
+### Fixed
+
+- Clearing an entire leaderboard will no longer result in a 404 Error.
+- Removing player from leaderboard in Players > Leaderboards page no longer results in a malformed and failed request.
+- Players > Leaderboards section will load dramatically faster for customers with large numbers of leaderboards.
+- Fixed missing Microservices Deployment Status.
+- Fixed incorrect visualization for Player geolocation.
 
 ## [1.0.0] - 2022-12-16
 
@@ -204,7 +257,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Other improvements to the Leaderboard Creation wizard
 - Adding or Editing a Leaderboard Entry now offers the option to add entry stats
 
-## [0.7.0] 2022-09-15
+## [0.7.0] - 2022-09-15
 
 ### Changed
 
