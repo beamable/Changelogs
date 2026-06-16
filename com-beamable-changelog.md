@@ -5,6 +5,39 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.1.0] - 2026-06-16
+### Added
+- Added `OmitContentManifestTags` option to `ContentConfiguration` to opt out of content tag download in the public manifest. Tag-based `ContentQuery` filters (e.g. `tag:weapon`) return no results when this is enabled. [4597](https://github.com/beamable/BeamableProduct/issues/4597)
+- Added in-window Content Manager progress for sync and revert operations.
+- Added editor content sync download concurrency configuration.
+- Implemented new Admin Console feature
+
+### Fixed
+- Improved content sync resilience for transient SSL/socket reset download failures.
+- Fixed first-run Account window build config setup when `config-defaults.txt` is missing or has no PID.
+- Fixed intermittent Account login `TaskCanceledException` from overlapping Unity editor CLI refreshes.
+- Deserialization issue with `properties` field in Score Items of Events
+- Fixed an issue where the Unity Editor would not detect changes to Icon subObject (for Sprites in Multiple Mode) and thus not saving it correctly
+- Fixed CLI web command spamming `ObjectDisposedException` when the local CLI server is unreachable [4581](https://github.com/beamable/BeamableProduct/issues/4581)
+- Fixed an issue when creating a new Content Object some Optional and string values were null instead of default values.
+- Fix issue where Critical log errors where not being parsed to Unity LogLevels.
+- Fix periodic freeze caused by telemetry collector polling.
+
+### Changed
+- Added support to configure Max Parallel Service Build count on MicroserviceConfiguration.
+- Reworked Lightbeam samples
+- Changed default gem icon
+- "Beam Library" Window is now "Beam Samples" Window and was updated with latest docs and samples
+- AdminFlow prefab (ConsoleFlow) was removed from the Beam Samples Window and is now considered Deprecated
+- Now Renamed content entries will be shown as Modified Renamed in the Content Manager Window rather than a New and Deleted entries.
+- Default assets and content are imported manually on first visit to Content Manager
+
+## [5.0.1] - 2026-04-02
+### Fixed
+- No longer automatically generate clients for readonly service references
+### Changed
+- Update CLI to 7.0.1
+
 ## [5.0.0] - 2026-02-19
 ### Added
 - Unity 6.3 Support
@@ -54,7 +87,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Improved Beamable CLI installation reliability with automatic retry mechanism (up to 5 attempts) on timeout failures, along with enhanced error messaging for troubleshooting.
-- Improved Beam Accounts window when the `config-defaults.txt` is missing values. 
+- Improved Beam Accounts window when the `config-defaults.txt` is missing values.
 - Updated Beam CLI version to 6.2.0
 
 ## [3.1.7] - 2025-12-05
@@ -74,7 +107,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed an `IndexOutOfRangeException` occurring when using the Content Editor Window.
 - Fixed an issue where button to create a new snapshot was not displayed when no snapshots existed.
- 
+
 ## [3.1.4] - 2025-10-7
 ### Fixed
 - Fixed an issue where content drawer was not including subtype contents
@@ -107,7 +140,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [3.0.0] - 2025-08-05
 
 ### Changed
-- Heartbeats are no longer sent when Realm is configured to use the Beamable websocket. 
+- Heartbeats are no longer sent when Realm is configured to use the Beamable websocket.
 - Able to use the new Client Code Generator from CLI that uses OpenAPI instead of the old one that uses Reflection
 - `Core.Platform.Api` namespace moved into `Beamable.Api` namespace
 - `Core.Platform` namespace moved into `Beamable` namespace
@@ -126,20 +159,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Beamable Environment Switcher is now part of the login flow.
 
 ### Added
-- New Login window that uses CLI workflows rather than storing editor login information twice. 
+- New Login window that uses CLI workflows rather than storing editor login information twice.
 - New Content Manager window that uses CLI workflows and receives dynamic updates.
 - `BeamEditorContext.Microservices` property allows access to Microservice clients at editor time. [4102](https://github.com/beamable/BeamableProduct/issues/4102)
 - New Validation for Cron Schedule Definition
-
-## [2.4.6] - 2026-04-10
-
-### Changed
-
-- Upgrade CLI to 4.3.7
-
-### Fixed 
-
-- Backported possible `IndexOutOfBounds` error when running `beam project ps` due to nameless docker containers
 
 ## [2.4.5] - 2026-03-17
 
@@ -169,7 +192,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Beamable Editor only checks for TMP and Addressable dependencies once per session.
 
-## [2.4.0] - 2025-06-11 
+## [2.4.0] - 2025-06-11
 
 ### Fixed
 - Fixed issue that CloudSaving could generate corrupted save files if the application was closed during saving process.
@@ -181,6 +204,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Upgrade CLI to 4.3.1
 - Bake content will bake content from realm that is provided by `config-defaults` (used in builds) when available. Instead of using local content and requiring it to be the same as remote one, it will download and bake currently deployed manifest and its content.
+
+### Removed
+- Mongo third party libraries no longer exist
+- SharpCompress third party library no longer exists
+- dotnet `System` namespace dlls no longer exist
+- Microservice types no longer exist in the Unity SDK
 
 ## [2.3.0] - 2025-05-08
 
