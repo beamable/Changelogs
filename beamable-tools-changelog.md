@@ -6,14 +6,45 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
-## Unreleased
+## [7.2.1] - 2026-06-29
+
+### Changed
+
+- Validation of the content no longer can automatically try to update the content value
+
+## [7.2.0] - 2026-06-16
 
 ### Added
 - New Commands `project add-replacement-type`, `project list-replacement-type`, `project remove-replacement-type` to manage Unreal replacement types.
+- Unreal Types for Microservices FColor, FVector, FLinearColor, FIntVector, FGameplayTag, FGameplayTagCOntainer, FSoftObjectPath.
 - Semantic Types for Beamable Classes with custom serialization and deserialization
+- A `.beamroot` file will stop the CLI's search for a `.beamable` folder. 
+- Added internal `content history` command suite to power engine integrations for inspecting history of content changes to a realm.
+- MCP Server Configuration for Beamable CLI. Use `beam mcp setup` to configure in your project.
+- Agentic AI Skills for working with beamable. Use `beam install-ai-skill` to install it in your project.
+
+### Changed
+- Update `AbsInventoryApi` and `MicroserviceInventoryApi` to use new Auto-generated IInventoryApi with Inventory filtering support.
+- Update `deploy release` and `deploy plan` with new optional parameter `--max-parallel-count` to control the max number of services that can be built simultaneously. This is to help with out-of-memory issues on machines with low resources.
+- Removed 5% sample rating for OTEL traces so we can get all traces from portal extensions and errors that happens in the CLI.
+- Improved Content Publish command performance by adding size-aware batching and retry.
+- Refactored calculation of directory size, 2x performance improvement.
+- Refactored generation of local manifest data, 20x performance improvement.
+- Added support to Max Concurrent Upload for `deploy release`.
 
 ### Fixed
+- Resolved issues in the token refresh flow where the CLI did not properly refresh, and persist the access token.
 - Concurrency issue in `Promise` code that could lead to deadlock scenario in multi-threaded code
+- Fixed issue that considered types used in ServerCallable methods on Microservices to be generated to client code.
+- Creating microservices when CultureInfo is expecting `,` instead of `.` as the decimal separator.
+- Fix an issue where some summary tag were missing the closing tag, which produced a truncated summary tag.
+- Setting environment variable ``BEAM_NO_TELEMETRY`` or the ``BeamCliAllowTelemetry`` config now prevents collector ps process from starting
+- Fixed .NET framework argument parsing issues related to culture and locale handling.
+
+## [7.0.1] - 2026-04-02
+### Fixed
+- Fix an issue where some summary tag were missing the closing tag, which produced a truncated summary tag.
+- Fixed an issue where some MSBuild version could not properly build because of some MSBuild static methods not available in that environment, now are replaced for lower-common-denominator equivalents.
 
 ## [7.0.0] - 2026-02-19
 ### Added
@@ -36,6 +67,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use `ForceRemoteStorage` on C#MS builder instead of `MicroserviceBootstrapper.ForceUseRemoteDependencies`
 - Deprecated `LocalEnvCustomArgs`, use the `LocalEnvModifier` instead. 
 - Newer Beam Auth API schemas use AuthV2 prefix.
+
+
+### Issues
+- Newly created content published by other developers working on the same realm as you will appear as deleted instead of automatically being downloaded.
 
 ## [6.2.2] - 2025-12-15
 ### Changed
@@ -148,10 +183,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [5.2.0] - 2025-07-30
 ### Added
 - Added a new command `project generate web-client `, which generates typescript/javascript web client code for calling c# microservices.
-- New Static Analyzer for Generic Types on `Microservice` classes;
+- New Static Analyzer for Generic Types on `Microservice` classes; 
 
 ### Fixed
-- `beam deploy` commands handle non JSON `docker build` logs, which fixes error where builds couldn't find the docker image id of successfully built services.
+- `beam deploy` commands handle non JSON `docker build` logs, which fixes error where builds couldn't find the docker image id of successfully built services. 
 - `beam publish` commands now updates published content reference manifest UID for the published one
 - `beam checks scan` MongoDB validator for `MongoDB.Driver 3.3.0` no longer adds incorrect xml to `.csproj` files
 
@@ -160,14 +195,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [5.1.0] - 2025-07-23
 ### Added
-- Added Developer User Manager command `developer-user-manager`, which is responsible for management of multiple developers users that can be attached when you starting a new session in the engine.
   - `developer-user-manager ps` command that watches your developer users files to check if there's any user created/removed/updated.
   - `developer-user-manager create-user-batch` command that create multiple developer users in a batch, it can received a list of templates to copy from.
   - `developer-user-manager create-user` command that can create one developer user.
   - `developer-user-manager remove-user` command that remove the user from the local files (it will not remove from the portal).
   - `developer-user-manager save-user` command that can save a new developer user in the local files.
   - `developer-user-manager update-info` command to edit the local files informations like alias, description and etc.
-- Improved diagnostic information for failures in `beam project generate-client --logs v` and better error messaging
+- Improved diagnostic information for failures in `beam project generate-client --logs v` and better error messaging  
 - `beam org games` command will fetch list of available games
 - `beam content` commands for handling multiple content manifest ids
 
@@ -193,11 +227,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [5.0.2] - 2025-06-23
 ### Fixed
-- Fixed issue with the `content replace-local` command that wasn't replacing the manifest id reference after copy the content from a realm to another.
+ - Fixed issue with the `content replace-local` command that wasn't replacing the manifest id reference after copy the content from a realm to another.
 
 ## [5.0.1] - 2025-06-18
 ### Fixed
-- Fixed issue with the `project logs` command that could cause the command to fail to exit cleanly when the service process was killed.
+- Fixed issue with the `project logs` command that could cause the command to fail to exit cleanly when the service process was killed. 
 - Fixed issue a performance issue with the `content ps`, the watcher wasn't recognizing actions for batch execution.
 - `Promise.Recover` no longer hangs forever when callback throws an exception
 - CLI no longer throws internal argument exceptions on large log messages
@@ -217,7 +251,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New Code Fixer to fix async void Callable methods on IDE.
 - New Code Analyzer to validate Federations.
 - New Code Fixer to Implement possible fixes for Federations.
-- New Code Fixer to Solve Microservice classes missing Attribute or Partial keyword.
+- New Code Fixer to Solve Microservice classes missing Attribute or Partial keyword. 
 - New Code Analyzer to Check if Microservice Callable Methods return are inside Microservice Scope (Needs to be enabled by adding `<BeamValidateCallableTypesExistInSharedLibraries>true</BeamValidateCallableTypesExistInSharedLibraries>` to MS C# project)
 - New Code Analyzer and Fixer for Microservice ID non matches the `<BeamId>` csproj property.
 - New Code Analyzer and Fixer for non-readonly static fields on Microservice classes.
@@ -231,7 +265,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `beam org realms` command that prints out a list of all available realms for the requesting user.
 - New `beam content` command pallet for SAMS and Engine-integration usage.
 - CLI can emit open telemetry data when `BEAM_TELEMETRY` environment variable is enabled.
-
+ 
 ### Changed
 - Logging uses `ZLogger` instead of `Serilog`
 - Revise the categorization of all generated Blueprint nodes to enhance discoverability in Unreal Engine.
@@ -246,16 +280,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed an issue in which running `beam deploy release` when CID was an alias resulted in an error in execution.
 - Fixed `useLocal: true` in Scheduler Microservice invocation when the C#MS is remotely deployed.
-
-## [4.3.8] - 2026-06-24
-
-### Fixed
-- Backported microservice content resilience: manifest and content-entry fetches now retry transient failures (timeouts, 429, 5xx, transport errors) with bounded exponential backoff and jitter, and a failed fetch no longer poisons the in-memory content cache.
-
-## [4.3.7] - 2026-04-10
-
-### Fixed
-- Backported possible `IndexOutOfBounds` error when running `beam project ps` due to nameless docker containers
 
 ## [4.3.6] - 2026-03-13
 
@@ -276,10 +300,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [4.3.3] - 2025-07-23
 ### Fixed
 - `beam deploy release` Task completion error.
-
-## [4.3.2] - 2025-07-23
-### Changed
-- `beam deploy release` waits for logs to be flushed from docker buildkit, and prints additional diagnostic logs on failure to parse imageId. 
 
 ## [4.3.1] - 2025-06-05
 
