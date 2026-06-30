@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.1.1] - 2026-06-30
+
+### Added
+
+- Content fields with attribute `MustReferenceContent` will have display content picker inspector in Editor
+
+### Fixed
+
+- Fixed `Accounts.OnReady` failing when stale or invalid remembered device tokens are present, while preserving strict validation for the active player token.
+- Fixed BeamContext infinite retry handling so retry attempts past the configured retry-delay array do not overflow the
+tracked error buffer.
+
+### Changed
+
+- Validation of the content no longer can automatically try to update the content value
+- Update CLI to 7.2.1
+
+
+
 ## [5.1.0] - 2026-06-16
 ### Added
 - Added `OmitContentManifestTags` option to `ContentConfiguration` to opt out of content tag download in the public manifest. Tag-based `ContentQuery` filters (e.g. `tag:weapon`) return no results when this is enabled. [4597](https://github.com/beamable/BeamableProduct/issues/4597)
@@ -31,6 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - AdminFlow prefab (ConsoleFlow) was removed from the Beam Samples Window and is now considered Deprecated
 - Now Renamed content entries will be shown as Modified Renamed in the Content Manager Window rather than a New and Deleted entries.
 - Default assets and content are imported manually on first visit to Content Manager
+- Update CLI to 7.2.0
 
 ## [5.0.1] - 2026-04-02
 ### Fixed
