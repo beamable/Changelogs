@@ -7,11 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [6.0.1] - 2026-07-31
+
+### Fixed
+
+- Fixed IAP support for the 5.4.2 version of the Unity In-App Purchasing.
+
 ## [6.0.0] - 2026-07-28
 
-### Changed
+### Breaking Changes
 
-- **Breaking:** Unity In-App Purchasing (UnityIAP) 5 is now the selected version, since Unity deprecated UnityIAP 4. Projects still on UnityIAP 4 keep working.
+- Unity In-App Purchasing (UnityIAP) 5 is now the selected version, since Unity deprecated UnityIAP 4. Projects still on UnityIAP 4 keep working.
 
 ### Added
 
