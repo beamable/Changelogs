@@ -5,19 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [6.1.0]
 
-## [6.0.1] - 2026-07-31
+### Added
+- Added build-scoped suppression and per-player runtime opt-in for automatic Player Social friend-invitation Mail checks.
+- Fixed `CommerceService.GetCurrent()` waiting indefinitely when called without a store scope; unscoped Commerce requests now fail immediately with a clear error.
+- Content Manifest caching between runs.
+- Added support for silent login to the Google Sign In integration.
 
 ### Fixed
 
-- Fixed IAP support for the 5.4.2 version of the Unity In-App Purchasing.
+- Fixed repeated content validation during Unity Inspector repaints, reducing Editor log spam and performance overhead when viewing content.
+- Fixed Unity Editor hitches after editing content properties by avoiding synchronous end-of-stream checks while reading streamed CLI responses.
+
+### Changed
+
+- Update CLI to 7.2.3
+
+## [6.0.1] - 2026-07-31
+
+### Changed
+
+- Unity In-App Purchasing (UnityIAP) 5.4.2 is now supported. The Beamable Steam store implements `IOrderInfo.PaymentProviders`, which UnityIAP introduced in 5.4.2.
+- The supported UnityIAP 5 range is **5.2.0 through 5.4.2**. UnityIAP 5.0.x and 5.1.x do not compile against Beamable 6.x, because they predate the `StoreController.OnStoreConnected` event that the purchasing integration requires.
 
 ## [6.0.0] - 2026-07-28
 
-### Breaking Changes
+### Changed
 
-- Unity In-App Purchasing (UnityIAP) 5 is now the selected version, since Unity deprecated UnityIAP 4. Projects still on UnityIAP 4 keep working.
+- **Breaking:** Unity In-App Purchasing (UnityIAP) 5 is now the selected version, since Unity deprecated UnityIAP 4. Projects still on UnityIAP 4 keep working.
 
 ### Added
 
@@ -31,6 +47,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Unity SDK version headers were not being sent by default.
 - Fixed `BeamContext` initialization throwing `IndexOutOfRangeException` from its own retry handler when initialization kept failing with infinite context retries enabled, which masked the underlying initialization error.
 - Fixed CLI bootstrap failing when the installed .NET SDK is a supported version newer than the pinned feature band (for example 10.0.301 when the pin is 10.0.100); the generated `global.json` now rolls forward to any compatible installed SDK.
+
+## [5.1.2] - 2026-07-16
+
+### Changed
+
+- Update CLI to 7.2.2
 
 ## [5.1.2] - 2026-07-16
 
