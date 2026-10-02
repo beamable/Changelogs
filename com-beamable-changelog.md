@@ -5,10 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [6.1.0]
+## [6.2.0]
 
 ### Added
+
 - Added build-scoped suppression and per-player runtime opt-in for automatic Player Social friend-invitation Mail checks.
+
+### Changed
+
+- Detect if Unity is running in batch mode and do not attempt to show OptionDialogWindow if that is the case.
+- Update CLI to 7.3.0
+
+### Fixed
+
+- Fixed the Unity Content window failing to reconcile large local content changes after filesystem watcher overflow, which previously required a manual refresh.
+- Keep deleted content from being recreated by pending autosaves or running properties/tag writes in the Content window.
+- Prevent older property saves from overwriting newer tag edits, and restore editable content after a failed file deletion.
+- Content checksums use definite ordering of fields now, for robustness even when published content is unsorted or sorted differently.
+
+### UI/UX
+
+- Improve content validation QOL with clearer Inspector issue badges, errors above collapsed lists, softer error text with bright red bars, and faster validation error counting for large lists.
+- Add a shared Issues icon for Content window validation errors and conflicts, an Issues footer filter, and a Publish badge.
+- Explain blocked publishing in a popup with issue counts and an action to view affected items.
+- Improve Content window tooltips, filter behavior, and toolbar layout.
+- Add `/` to focus content search and Escape or an outside click to unfocus it.
+
+## [6.1.0] - 2026-08-26
+
+### Added
 - Fixed `CommerceService.GetCurrent()` waiting indefinitely when called without a store scope; unscoped Commerce requests now fail immediately with a clear error.
 - Content Manifest caching between runs.
 - Added support for silent login to the Google Sign In integration.
@@ -47,12 +72,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Unity SDK version headers were not being sent by default.
 - Fixed `BeamContext` initialization throwing `IndexOutOfRangeException` from its own retry handler when initialization kept failing with infinite context retries enabled, which masked the underlying initialization error.
 - Fixed CLI bootstrap failing when the installed .NET SDK is a supported version newer than the pinned feature band (for example 10.0.301 when the pin is 10.0.100); the generated `global.json` now rolls forward to any compatible installed SDK.
-
-## [5.1.2] - 2026-07-16
-
-### Changed
-
-- Update CLI to 7.2.2
 
 ## [5.1.2] - 2026-07-16
 
