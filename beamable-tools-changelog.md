@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.3.0] - 2026-10-08
+
+### Changed
+
+- CLI HTTP requests now retry `429 Too Many Requests` up to 5 times with jittered exponential back-off instead of failing the caller.
+- CLI startup network calls (alias/cid resolution and token refresh) are now bounded to 8 seconds and non-fatal, so an unreachable or half-up backend warns and continues offline instead of hanging every command.
+- `beam project run --with-group` now staggers its service fan-out, so parallel `generate-env` calls no longer trip the gateway's rate limiter.
+- Portal extension "open in browser" landing URLs now honor the `--portal-url` override.
+- Update `MongoDB.Driver` dependency to `3.11.2`.
+- Update `SharpCompress` dependency to `0.50.4`.
+- Update CLI `OpenTelemetry` dependencies to `1.18.0`.
+
+### Fixed
+
+- `content ps --watch` now recovers from filesystem watcher overflow by performing an authoritative full rescan instead of leaving consumers with an incomplete local content state.
+- A portal extension whose rebuild throws no longer takes down the whole `beam project run` process. `FileSystemWatcher` callbacks run on thread-pool threads, so an escaping exception killed every service and extension in the group rather than just the failing one; the failure is now logged and the rebuild stays a failed rebuild. Concurrent rebuilds are also serialized, since two file-change events could reach the builder at once and collide writing `metadata.json`.
+- Improve OpenAPI schema population
+- `beam project run` no longer hangs silently when a portal extension or embedded-Mongo service fails to start. Those faults were unobservable behind infinite sibling tasks; they now log, emit a terminal stream update, and release the waiting consumer.
+- `beam project run` progress no longer freezes at "Bundling Beamable Properties…" when a service dies during `generate-env`; both the structured and plain-text milestone tables are now consulted on both transports.
+- A failing `POST /basic/auth/token` no longer mutually recurses into a stack overflow, because auth-token requests are excluded from the token-refresh retry path. Timeout retries are also no longer an unbounded fixed-delay loop, since the retry count is now carried through the internal retry instead of being reset.
+- Web SDK code generation fixes: colliding generated method names are disambiguated with a `By{Param}And{Param}` suffix (they previously emitted duplicate top-level declarations, a `SyntaxError` in the ESM build); duplicate `export type` declarations are collapsed by name and the static type collections are cleared after each generation, so types no longer leak across microservices or across repeated generations in a long-lived process such as the MCP server; and `oneOf` members are routed through the type mapper, fixing a null reference on inline, primitive, and nullable schemas.
+- Content checksums use definite ordering by way of `Ordinal` sorting as a tie-breaker on `OrdinalIgnoreCase` sorting, and always recalculate checksums of incoming content items in case the published content has a differently-calculated checksum. This prevents identical entries from showing as different.
+- Improved Microservice ID calculation to reduce container image rebuilds when the code is identical.
+- Allow tuples in C# Microservice callable parameters.
+- Improved output sequencing for concurrent CLI commands so that errors and command output reach Unity intact.
+- Preserve log context across Promise `await` boundaries.
+- Generate valid OpenAPI component IDs for tuple callables and preserve their C# types in generated clients, including nested tuples and tuple collections.
+- Report failed MSBuild targets as failed builds, including when compiler diagnostics are empty or missing. Project builds now return a nonzero exit and surface the underlying build output in Unity.
+
 ## [7.2.3] - 2026-08-26
 
 ### Added
@@ -17,6 +46,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed generated Unity `.meta` guids being derived from the absolute output path, so the same file now gets the same guid on a build machine and in a local checkout. Guids already present in the Unity tree are reused rather than recomputed.
 - Fixed generated folder `.meta` files using the script `MonoImporter` template instead of `folderAsset: yes` with `DefaultImporter`.
 - Fix logging unexpected curly-brace expressions.
+- Portal extension scanning no longer excludes sym linked package files
+- Fixed orphaned Unity .meta files left behind when cleaning generated Beamable source directories.
 
 ## [7.2.2] - 2026-07-16
 
